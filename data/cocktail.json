@@ -1,0 +1,18 @@
+{
+	"mojito": {
+		"category": "long-drink",
+		"alchol-level": "2"
+	},
+	"bloody mary": {
+		"category": "long-drink",
+		"alchol-level": "2"
+	},
+	"screwdriver": {
+		"category": "long-drink",
+		"alchol-level": "1"
+	},
+	"cherry coke": {
+		"category": "long",
+		"alchol-level": "0"
+	}
+}

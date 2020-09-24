@@ -1,0 +1,65 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  
+</script>
+
+<!doctype html>
+<html>
+<head>
+  <title>WEB1 - Welcome</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1><a href="/">Cocktails</a></h1>
+  <ol>
+    <li><a href="getCocktail/mojito">Mojito</a></li>
+    <li><a href="getCocktail/bloody mary">Bloody mary</a></li>
+    <li><a href="getCocktail/martini">Martini</a></li>
+  </ol>
+
+  <div>
+    이름<input type="text" id="name"></input>
+    카테고리<input type="text" id="category"></input>
+    알콜레벨<input type="text" id="level"></input>
+    <button type="button" class="Create">생성</input>
+  </div>
+  
+  
+</body>
+</html>
+
+<script>
+  //동적으로 출력하려다 포기
+  $(document).ready(function(){
+    $.ajax({
+      url:'list',
+      type:'GET',
+      success:function(data){
+        //alert(data);
+      }
+    })
+  })
+
+
+  $(".Create").click(function(e){
+
+    var name = $('#name').val();
+    var category = $('#category').val();
+    var level = $('#level').val();
+    
+    $.ajax({
+        type: "POST",   
+        url: "addCocktail/" + name,
+        data: {
+            "category": category,
+            "alchol-level": level
+        },
+        success: function(data){
+          alert('성공');
+        },
+        error: function (xhr, status, error){
+            alert("error : " + error);
+        }
+    });
+  });
+</script>
